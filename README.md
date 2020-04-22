@@ -2,13 +2,16 @@
 .Net Console Application that uses Dependency Injection and Serilog for logging.
 
 ## Setup and Run
-git clone git@github.com:jkulba/LoadConfiguration.git
-
-dotnet build
-dotnet run --project Kulba.LoadConfig.ConsoleUI
+```console
+me@computer:~$ git clone git@github.com:jkulba/LoadConfiguration.git
+```
 
 ```console
-foo@bar:~$ whoami
-foo
+me@computer:~$ dotnet build
 ```
+
+```console
+me@computer:~$ dotnet run --project Kulba.LoadConfig.ConsoleUI
+```
+
 Yeah!
