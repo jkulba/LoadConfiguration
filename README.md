@@ -7,3 +7,8 @@ git clone git@github.com:jkulba/LoadConfiguration.git
 dotnet build
 dotnet run --project Kulba.LoadConfig.ConsoleUI
 
+```console
+foo@bar:~$ whoami
+foo
+```
+Yeah!
