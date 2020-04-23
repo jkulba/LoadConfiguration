@@ -10,18 +10,10 @@ namespace Kulba.LoadConfig.ConsoleUI
     {
         public static int Main(string[] args)
         {
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(configuration)
-                .CreateLogger();
-
             try
-            {
-                Log.Information("Starting host");
+            {                
                 CreateHostBuilder(args).Build().Services.GetService<IApplication>().Run();
+                Log.Information("Starting host");
                 return 0;
             }
             catch (Exception ex)
@@ -48,7 +40,9 @@ namespace Kulba.LoadConfig.ConsoleUI
                    services.Configure<AppConfigInfo>(hostContext.Configuration.GetSection("AppConfigInfo"));
                    services.AddTransient<IApplication, Application>();
                })
-               .UseSerilog();
-
+               .UseSerilog((hostContext, loggerConfiguration) => loggerConfiguration
+                    .ReadFrom.Configuration(hostContext.Configuration)
+               )
+               .UseConsoleLifetime(); 
     }
 }
