@@ -11,9 +11,8 @@ namespace Kulba.LoadConfig.ConsoleUI
         public static int Main(string[] args)
         {
             try
-            {                
+            {
                 CreateHostBuilder(args).Build().Services.GetService<IApplication>().Run();
-                Log.Information("Starting host");
                 return 0;
             }
             catch (Exception ex)
